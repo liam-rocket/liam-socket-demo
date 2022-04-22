@@ -14,6 +14,7 @@ const roomService = new RoomService();
 const app = express();
 const http = createServer(app);
 const io = new Server(http);
+const PORT = process.env.PORT || 3004;
 
 // serving the whole folder
 const projectDirectory = "./";
@@ -89,6 +90,6 @@ io.on("connection", (socket) => {
 });
 
 // always use .app unless you are using someone like socket
-http.listen(8080, () => {
-  console.log("application running at 8080");
+http.listen(PORT, () => {
+  console.log(`application running at ${PORT}`);
 });
